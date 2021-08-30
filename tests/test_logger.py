@@ -1,7 +1,8 @@
 import unittest
 import tempfile
+import os
 
-from src.logger import Logger
+from src.logging import Logger
 
 
 class TestLogger(unittest.TestCase):
