@@ -2,7 +2,7 @@ import unittest
 import tempfile
 import os
 
-from src.logging import Logger
+from src.logger import Logger
 
 
 class TestLogger(unittest.TestCase):
