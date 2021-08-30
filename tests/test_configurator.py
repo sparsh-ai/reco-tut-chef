@@ -12,16 +12,16 @@ class TestConfigurator(unittest.TestCase):
         self.assertEqual(self.conf_default["recommender"], "config_MF")
     
     def testRecommenderNameType(self):
-        self.assertEqual(str(type(self.conf_default["recommender"])), "<class 'str'>")
+        self.assertEqual(str(type(self.conf_default["recommender"])), "<type 'unicode'>")
 
     def testIntegerType(self):
-        self.assertEqual(str(type(self.conf_default["epochs"])), "<class 'int'>")
+        self.assertEqual(str(type(self.conf_default["epochs"])), "<type 'int'>")
 
     def testListType(self):
-        self.assertEqual(str(type(self.conf_mlp["layers"])), "<class 'list'>")
+        self.assertEqual(str(type(self.conf_mlp["layers"])), "<type 'list'>")
     
     def testUnwantedTypeConversion(self):
-        self.assertEqual(str(type(self.conf_default["batch_size"])), "<class 'str'>")
+        self.assertEqual(str(type(self.conf_default["batch_size"])), "<type 'str'>")
 
     def testDefaultSectionValue(self):
         self.assertEqual(self.conf_default["epochs"], 300)

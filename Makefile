@@ -1,3 +1,3 @@
-setup: ; pip install -q --use-feature=in-tree-build .
+setup: ; python3 setup.py install
 
-test: ; pytest
+test: ; PYTHONPATH=. pytest
