@@ -1,0 +1,3 @@
+- Downloaded from https://www.kaggle.com/gennadylaptev/dota-heroes-binary
+- Loaded and compressed using pandas dataframe in parquet snappy format
+- Saved and version controlled with DVC
