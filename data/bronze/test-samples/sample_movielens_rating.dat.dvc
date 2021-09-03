@@ -1,0 +1,4 @@
+outs:
+- md5: 9a9b91d1ca60174d0188df01e7509a30
+  size: 2458958
+  path: sample_movielens_rating.dat

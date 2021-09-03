@@ -1,0 +1,4 @@
+outs:
+- md5: 48a7b9239c30d83b25d78198cd8fbc57
+  size: 4460529
+  path: sample_movielens_genre.csv
