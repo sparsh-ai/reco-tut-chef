@@ -1,0 +1,4 @@
+outs:
+- md5: 619ae6abf79678f8aa46b03b226331a5
+  size: 1090113
+  path: NeuMF.pth
