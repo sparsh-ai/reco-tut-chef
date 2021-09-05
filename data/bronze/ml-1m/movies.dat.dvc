@@ -1,0 +1,11 @@
+md5: 623111341be39aaf8f86e54261be2be3
+frozen: true
+deps:
+- path: ml1m/v0/movies.dat
+  repo:
+    url: https://github.com/sparsh-ai/reco-data
+    rev_lock: ddce05684cb1e3d21b74d877b326a9739c9ba016
+outs:
+- md5: ef9fd9ff8d1b33faf73e2122c371e910
+  size: 171308
+  path: movies.dat

@@ -1,0 +1,11 @@
+md5: f67dda82b8a75b9dea10739b08ba03a9
+frozen: true
+deps:
+- path: ml1m/v0/ratings.dat
+  repo:
+    url: https://github.com/sparsh-ai/reco-data
+    rev_lock: ddce05684cb1e3d21b74d877b326a9739c9ba016
+outs:
+- md5: a89aa3591bc97d6d4e0c89459ff39362
+  size: 24594131
+  path: ratings.dat
