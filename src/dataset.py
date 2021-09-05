@@ -122,4 +122,4 @@ class SessionDataset:
         train_items = set()
         train['sequence'].apply(lambda seq: train_items.update(set(seq)))
         test['sequence'] = test['sequence'].apply(lambda seq: [it for it in seq if it in train_items])
-        return train, test
+        return train, test    

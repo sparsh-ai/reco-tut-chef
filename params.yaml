@@ -1,0 +1,4 @@
+
+prepare_30music:
+  filter_last_months: 1
+  filter_topk: 1000
