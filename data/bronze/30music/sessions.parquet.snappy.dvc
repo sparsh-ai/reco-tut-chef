@@ -1,0 +1,11 @@
+md5: 1b8e055a15e997971f05be10b5fd4d3c
+frozen: true
+deps:
+- path: 30music/v1/sessions.parquet.snappy
+  repo:
+    url: https://github.com/sparsh-ai/reco-data
+    rev_lock: 56166a18fba10e7a151f559fe9324194f4861e64
+outs:
+- md5: e435a93ac4e4aa4ab68c603dadab18ea
+  size: 33724672
+  path: sessions.parquet.snappy
