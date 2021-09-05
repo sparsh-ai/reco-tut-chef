@@ -22,7 +22,10 @@ data_target_path_train = os.path.join(data_target_path, 'train.parquet.snappy')
 data_target_path_test = os.path.join(data_target_path, 'test.parquet.snappy')
 
 
-def prepare_data():
+def prepare_data(data_source_path,
+                 filter_last_months, filter_topk,
+                 data_target_path_train, data_target_path_test):
+    
     df = pd.read_parquet(data_source_path)
     sess_ds = SessionDataset(df)
 

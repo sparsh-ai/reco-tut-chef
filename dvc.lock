@@ -1,0 +1,20 @@
+schema: '2.0'
+stages:
+  prepare_30music:
+    cmd: python src/dataprep/30music.py data/bronze/30music/sessions_sample_10.parquet.snappy
+    deps:
+    - path: data/bronze/30music/sessions_sample_10.parquet.snappy
+      md5: 604e634fb3b7505d6fafc4293ffd2bc7
+      size: 3680017
+    - path: src/dataprep/30music.py
+      md5: e97cd2c86159f64a567cd8b34d40e90a
+      size: 1506
+    params:
+      params.yaml:
+        prepare_30music.filter_last_months: 1
+        prepare_30music.filter_topk: 1000
+    outs:
+    - path: data/silver/30music
+      md5: 09d5ef5a4042482d29f581f56c967514.dir
+      size: 217650
+      nfiles: 2
