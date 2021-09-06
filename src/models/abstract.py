@@ -1,4 +1,7 @@
 
+import logging
+
+
 class ISeqRecommender(object):
     """Abstract Recommender class"""
 
