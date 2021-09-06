@@ -1,3 +1,10 @@
+import operator
+import logging
+from tqdm import tqdm
+import numpy as np
+import matplotlib.pyplot as plt
+
+from src.eval.metrics import EvalMetrics
 
 
 class SequentialEvaluator:
@@ -228,15 +235,15 @@ class SequentialEvaluator:
         # fig, axes = plt.subplots(nrows=1, ncols=len(self.evaluation_functions), figsize=(15,5))
         res_list_t = list(zip(*res_list))
         results = []
-        for midx, metric in enumerate(self.evaluation_functions):
-            mvalues = [res_list_t[1][j][midx][1] for j in range(len(res_list_t[1]))]
-            fig, ax = plt.subplots(figsize=(5,5))
-            ax.plot(topn_list, mvalues)
-            ax.set_title(metric)
-            ax.set_xticks(topn_list)
-            ax.set_xlabel('List length')
-            fig.tight_layout()
-            results.append(fig)
+        # for midx, metric in enumerate(self.evaluation_functions):
+        #     mvalues = [res_list_t[1][j][midx][1] for j in range(len(res_list_t[1]))]
+        #     fig, ax = plt.subplots(figsize=(5,5))
+        #     ax.plot(topn_list, mvalues)
+        #     ax.set_title(metric)
+        #     ax.set_xticks(topn_list)
+        #     ax.set_xlabel('List length')
+        #     fig.tight_layout()
+        #     results.append(fig)
         return [results, GIVEN_K, LOOK_AHEAD, STEP]
 
     def eval_profilelength(self, user_flg=0, given_k_list=[1,2,3,4], 
@@ -275,13 +282,13 @@ class SequentialEvaluator:
         # fig, axes = plt.subplots(nrows=1, ncols=len(self.evaluation_functions), figsize=(15,5))
         res_list_t = list(zip(*res_list))
         results = []
-        for midx, metric in enumerate(self.evaluation_functions):
-            mvalues = [res_list_t[1][j][midx][1] for j in range(len(res_list_t[1]))]
-            fig, ax = plt.subplots(figsize=(5,5))
-            ax.plot(given_k_list, mvalues)
-            ax.set_title(metric)
-            ax.set_xticks(given_k_list)
-            ax.set_xlabel('Profile length')
-            fig.tight_layout()
-            results.append(fig)
+        # for midx, metric in enumerate(self.evaluation_functions):
+        #     mvalues = [res_list_t[1][j][midx][1] for j in range(len(res_list_t[1]))]
+        #     fig, ax = plt.subplots(figsize=(5,5))
+        #     ax.plot(given_k_list, mvalues)
+        #     ax.set_title(metric)
+        #     ax.set_xticks(given_k_list)
+        #     ax.set_xlabel('Profile length')
+        #     fig.tight_layout()
+        #     results.append(fig)
         return [results, TOPN, LOOK_AHEAD, STEP]

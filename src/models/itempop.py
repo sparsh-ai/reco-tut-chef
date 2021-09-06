@@ -1,7 +1,7 @@
 
 import operator
 
-from src.model.abstract import ISeqRecommender
+from src.models.abstract import ISeqRecommender
 
 
 class PopularityRecommender(ISeqRecommender):
