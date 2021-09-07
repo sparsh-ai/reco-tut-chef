@@ -6,18 +6,18 @@ import pandas as pd
 
 from src.dataset import SessionDataset
 
-params = yaml.safe_load(open("params.yaml"))["prepare_30music"]
+params = yaml.safe_load(open("params.yaml"))["prepare"]
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 3:
     sys.stderr.write("Arguments error. Usage:\n")
-    sys.stderr.write("\tpython {dataprep}.py {data-source-filepath}\n")
+    sys.stderr.write("\tpython {dataprep}.py {data-source-filepath} {data-target-dirpath}\n")
     sys.exit(1)
 
 filter_last_months = params['filter_last_months']
 filter_topk = params['filter_topk']
 
 data_source_path = str(sys.argv[1])
-data_target_path = os.path.join("data", "silver", "30music")
+data_target_path = str(sys.argv[2])
 data_target_path_train = os.path.join(data_target_path, 'train.parquet.snappy')
 data_target_path_test = os.path.join(data_target_path, 'test.parquet.snappy')
 

@@ -18,3 +18,18 @@ stages:
       md5: 09d5ef5a4042482d29f581f56c967514.dir
       size: 217650
       nfiles: 2
+  train_30music:
+    cmd: python src/train.py data/silver/30music artifacts/30music/models
+    deps:
+    - path: data/silver/30music/test.parquet.snappy
+      md5: 45618e571fae5ff77fe321a3ee3b3b47
+      size: 134777
+    - path: data/silver/30music/train.parquet.snappy
+      md5: d99ed34fc762bde348e97fe10261f035
+      size: 82873
+    - path: src/train.py
+      md5: 52b5c70dbca660abc04736d71afa77e2
+      size: 845
+    params:
+      params.yaml:
+        train_30music.model_name: itempop

@@ -1,11 +1,21 @@
 stages:
-  prepare_30music:
-    cmd: python src/dataprep/30music.py data/bronze/30music/sessions_sample_10.parquet.snappy
-    deps:
-    - data/bronze/30music/sessions_sample_10.parquet.snappy
-    - src/dataprep/30music.py
-    params:
-    - prepare_30music.filter_last_months
-    - prepare_30music.filter_topk
-    outs:
-    - data/silver/30music
+    prepare:
+        cmd: python src/prepare.py data/bronze/30music/sessions_sample_10.parquet.snappy data/silver/30music
+        deps:
+        - data/bronze/30music/sessions_sample_10.parquet.snappy
+        - src/dataprep/30music.py
+        params:
+        - prepare.filter_last_months
+        - prepare.filter_topk
+        outs:
+        - data/silver/30music
+    train:
+        cmd: python src/train.py data/silver/30music artifacts/30music/models
+        deps:
+        - data/silver/30music/test.parquet.snappy
+        - data/silver/30music/train.parquet.snappy
+        - src/train.py
+        params:
+        - train.model_name
+    evaluate:
+        cmd: python
