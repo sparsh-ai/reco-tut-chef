@@ -1,0 +1,11 @@
+md5: f0abf356b43bf3cac117b1f2ad20f855
+frozen: true
+deps:
+- path: olx/v1/df_subset_users.parquet.snappy
+  repo:
+    url: https://github.com/sparsh-ai/reco-data
+    rev_lock: 56166a18fba10e7a151f559fe9324194f4861e64
+outs:
+- md5: 1d9fa3db0fe36a5ea0de11913d593833
+  size: 72127879
+  path: df_subset_users.parquet.snappy
