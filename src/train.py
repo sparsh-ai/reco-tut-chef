@@ -4,33 +4,40 @@ import yaml
 import pickle
 import pandas as pd
 
-from src.models import PopularityRecommender
+from src.models import PopularityRecommender, KNNRecommender
+
 
 params = yaml.safe_load(open("params.yaml"))["train"]
 
-models = {
-    'itempop': PopularityRecommender()
-}
 
-
-def load_data(path):
-    path_train = os.path.join(path, 'train.parquet.snappy')
-    path_test = os.path.join(path, 'test.parquet.snappy')
+def load_data(datapath):
+    path_train = os.path.join(datapath, 'train.parquet.snappy')
+    path_test = os.path.join(datapath, 'test.parquet.snappy')
     train = pd.read_parquet(path_train)
     test = pd.read_parquet(path_test)
     return train, test
 
 
-def load_model(name):
-    model = models[name]
+def train_model(modelname, train):
+    models = {'itempop': PopularityRecommender(),
+              'knn': KNNRecommender(model='sknn', k=10)}
+    model = models[modelname]
+    model.fit(train)
     return model
 
 
+def save_model(model, modelname, modelpath):
+    pickle.dump(model, open(os.path.join(modelpath, modelname+'.pkl'), 'wb'))
+
+
 if __name__ == "__main__":
-    model_name = params['model_name']
-    data_path = str(sys.argv[1])
-    model_path = str(sys.argv[2])
-    train, test = load_data(data_path)
-    model = load_model(model_name)
-    model.fit(train)
-    pickle.dump(model, open(os.path.join(model_path, model_name+'.pkl'), 'wb'))
+    # load the params
+    modelname = params['model_name']
+    datapath = str(sys.argv[1])
+    modelpath = str(sys.argv[2])
+    # load the data
+    train, test = load_data(datapath)
+    # train the model
+    model = train_model(modelname, train)
+    # save the model
+    save_model(model, modelname, modelpath)

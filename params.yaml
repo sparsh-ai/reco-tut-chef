@@ -1,7 +1,7 @@
 
-prepare_30music:
+prepare:
   filter_last_months: 1
   filter_topk: 1000
 
-train_30music:
+train:
   model_name: itempop
