@@ -1,3 +1,5 @@
-setup: ; python3 setup.py install
+setup:
+	pip install -e .
 
-test: ; PYTHONPATH=. pytest
+test:
+	PYTHONPATH=. pytest
