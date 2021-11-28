@@ -1,0 +1,4 @@
+outs:
+- md5: a9597a1d341691382762b4f649e575e0
+  size: 2198997
+  path: train.parquet.snappy

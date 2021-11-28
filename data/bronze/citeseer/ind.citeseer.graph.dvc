@@ -1,0 +1,4 @@
+outs:
+- md5: 5f88483d5f5cc2b26b987bbbfb695005
+  size: 61987
+  path: ind.citeseer.graph
